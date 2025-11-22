@@ -1,0 +1,29 @@
+@model IEnumerable<VmoragaCollectionManager.Models.Collection>
+@{
+    ViewData["Title"] = "Todas las colecciones";
+}
+<h2>@ViewData["Title"]</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>
+                <form asp-controller="UserCollections" asp-action="Add" method="post" style="display:inline">
+                    <input type="hidden" name="collectionId" value="@item.Id" />
+                    <button type="submit" class="btn btn-success btn-sm">Seleccionar</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

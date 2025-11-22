@@ -15,4 +15,6 @@ public class ApplicationDbContext : IdentityDbContext
 
 	public DbSet<Collection> Collections { get; set; }
 	public DbSet<CollectionItem> CollectionItems { get; set; }
+	public DbSet<WishlistItem> WishlistItems { get; set; }
+	public DbSet<UserSelectedCollection> UserSelectedCollections { get; set; }
 }

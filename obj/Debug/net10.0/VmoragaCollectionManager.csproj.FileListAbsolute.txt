@@ -290,3 +290,4 @@ C:\elPelto\proyectos\desa\VmoragaCollectionManager\obj\Debug\net10.0\refint\Vmor
 C:\elPelto\proyectos\desa\VmoragaCollectionManager\obj\Debug\net10.0\VmoragaCollectionManager.pdb
 C:\elPelto\proyectos\desa\VmoragaCollectionManager\obj\Debug\net10.0\VmoragaCollectionManager.genruntimeconfig.cache
 C:\elPelto\proyectos\desa\VmoragaCollectionManager\obj\Debug\net10.0\ref\VmoragaCollectionManager.dll
+c:\elPelto\proyectos\desa\VmoragaCollectionManager\obj\Debug\net10.0\VmoragaCollectionManager.sourcelink.json

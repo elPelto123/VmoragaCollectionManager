@@ -36,6 +36,18 @@
                         <img src="@item.ImagePath" alt="Imagen" width="100" />
                     }
                 </td>
+                <td>
+                    <form asp-controller="Wishlist" asp-action="Add" method="post" style="display:inline">
+                        <input type="hidden" name="collectionItemId" value="@item.Id" />
+                        <input type="hidden" name="owned" value="true" />
+                        <button type="submit" class="btn btn-success btn-sm">Lo tengo</button>
+                    </form>
+                    <form asp-controller="Wishlist" asp-action="Add" method="post" style="display:inline">
+                        <input type="hidden" name="collectionItemId" value="@item.Id" />
+                        <input type="hidden" name="owned" value="false" />
+                        <button type="submit" class="btn btn-info btn-sm">Wishlist</button>
+                    </form>
+                </td>
             </tr>
         }
         </tbody>

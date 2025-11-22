@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VmoragaCollectionManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2979cc139350c41cb42fa0e6f783adf1bc57e96d")]
 [assembly: System.Reflection.AssemblyProductAttribute("VmoragaCollectionManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VmoragaCollectionManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

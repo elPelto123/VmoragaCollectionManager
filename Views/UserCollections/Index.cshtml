@@ -1,0 +1,24 @@
+@model IEnumerable<VmoragaCollectionManager.Models.UserSelectedCollection>
+@{
+    ViewData["Title"] = "Mis colecciones seleccionadas";
+}
+<h2>@ViewData["Title"]</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Colección</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Collection?.Name</td>
+            <td>
+                <a asp-controller="Collections" asp-action="Details" asp-route-id="@item.CollectionId" class="btn btn-info btn-sm">Ver elementos</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

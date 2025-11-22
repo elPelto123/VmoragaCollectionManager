@@ -1,0 +1,24 @@
+@model IEnumerable<VmoragaCollectionManager.Models.WishlistItem>
+@{
+    ViewData["Title"] = "Mi Wishlist";
+}
+<h2>@ViewData["Title"]</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Elemento</th>
+            <th>Estado</th>
+            <th>Colección</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CollectionItem?.Name</td>
+            <td>@(item.Owned ? "Lo tengo" : "Wishlist")</td>
+            <td>@item.CollectionItem?.Collection?.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>

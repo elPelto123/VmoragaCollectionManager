@@ -37,6 +37,14 @@ namespace VmoragaCollectionManager.Controllers
             return View(ownCollections);
         }
 
+        // GET: Todas las colecciones (para todos los usuarios)
+        [AllowAnonymous]
+        public async Task<IActionResult> All()
+        {
+            var collections = await _context.Collections.ToListAsync();
+            return View(collections);
+        }
+
         // GET: Collections/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -49,11 +57,13 @@ namespace VmoragaCollectionManager.Controllers
         }
 
         // GET: Collections/Create
+        [Authorize(Roles = "admin")]
         public IActionResult Create() => View();
 
         // POST: Collections/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create([Bind("Name,Description")] Collection collection)
         {
             // Procesar usuarios compartidos
@@ -74,6 +84,7 @@ namespace VmoragaCollectionManager.Controllers
         }
 
         // GET: Collections/Edit/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -85,6 +96,7 @@ namespace VmoragaCollectionManager.Controllers
         // POST: Collections/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description")] Collection collection)
         {
             if (id != collection.Id) return NotFound();
@@ -120,6 +132,7 @@ namespace VmoragaCollectionManager.Controllers
         }
 
         // GET: Collections/Delete/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -131,6 +144,7 @@ namespace VmoragaCollectionManager.Controllers
         // POST: Collections/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var collection = await _context.Collections.FindAsync(id);
