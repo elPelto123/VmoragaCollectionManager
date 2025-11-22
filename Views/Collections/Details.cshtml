@@ -1,0 +1,47 @@
+@model VmoragaCollectionManager.Models.Collection
+@{
+    ViewData["Title"] = "Detalles de la colección";
+}
+<h2>@ViewData["Title"]</h2>
+<div>
+    <h4>@Model.Name</h4>
+    <p>@Model.Description</p>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Eliminar</a>
+</div>
+<hr />
+<h4>Elementos de la colección</h4>
+<p>
+    <a asp-controller="CollectionItems" asp-action="Create" asp-route-collectionId="@Model.Id" class="btn btn-primary">Agregar elemento</a>
+</p>
+@if (Model.Items != null && Model.Items.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImagePath))
+                    {
+                        <img src="@item.ImagePath" alt="Imagen" width="100" />
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay elementos en esta colección.</p>
+}

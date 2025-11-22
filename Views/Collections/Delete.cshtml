@@ -1,0 +1,15 @@
+@model VmoragaCollectionManager.Models.Collection
+@{
+    ViewData["Title"] = "Eliminar colección";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>¿Está seguro que desea eliminar esta colección?</h3>
+<div>
+    <h4>@Model.Name</h4>
+    <p>@Model.Description</p>
+</div>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

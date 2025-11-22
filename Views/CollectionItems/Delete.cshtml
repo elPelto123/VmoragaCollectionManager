@@ -1,0 +1,19 @@
+@model VmoragaCollectionManager.Models.CollectionItem
+@{
+    ViewData["Title"] = "Eliminar elemento";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>¿Está seguro que desea eliminar este elemento?</h3>
+<div>
+    <h4>@Model.Name</h4>
+    <p>@Model.Description</p>
+    @if (!string.IsNullOrEmpty(Model.ImagePath))
+    {
+        <img src="@Model.ImagePath" alt="Imagen" width="100" />
+    }
+</div>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-controller="Collections" asp-action="Details" asp-route-id="@Model.CollectionId" class="btn btn-secondary">Cancelar</a>
+</form>

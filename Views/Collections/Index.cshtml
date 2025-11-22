@@ -1,0 +1,58 @@
+@model IEnumerable<VmoragaCollectionManager.Models.Collection>
+@{
+    ViewData["Title"] = "Mis Colecciones";
+}
+<h2>@ViewData["Title"]</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear nueva colección</a>
+</p>
+<h4>Tus colecciones</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Ver</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@if (ViewBag.SharedCollections != null && ((List<VmoragaCollectionManager.Models.Collection>)ViewBag.SharedCollections).Count > 0)
+{
+    <h4>Colecciones compartidas contigo</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in (List<VmoragaCollectionManager.Models.Collection>)ViewBag.SharedCollections)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Ver</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,29 @@
+@model VmoragaCollectionManager.Models.CollectionItem
+@{
+    ViewData["Title"] = "Editar elemento";
+}
+<h2>@ViewData["Title"]</h2>
+<form asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="CollectionId" />
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Imagen referencial</label>
+        <input type="file" name="imageFile" class="form-control" />
+        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <img src="@Model.ImagePath" alt="Imagen" width="100" />
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-controller="Collections" asp-action="Details" asp-route-id="@Model.CollectionId" class="btn btn-secondary">Volver</a>
+</form>

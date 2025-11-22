@@ -1,0 +1,27 @@
+@model VmoragaCollectionManager.Models.Collection
+@{
+    ViewData["Title"] = "Editar colección";
+}
+<h2>@ViewData["Title"]</h2>
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Compartir con usuarios (separados por coma, email o username):</label>
+        <input type="text" name="SharedUsers" class="form-control" value="@(Model.SharedWithUserIds != null ? string.Join(",", Model.SharedWithUserIds) : "")" />
+        <small class="form-text text-muted">Ejemplo: usuario1@email.com,usuario2@email.com</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>
